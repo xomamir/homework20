@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="px-3">
+    <form action="{{url_for('info_pok')}}" method="POST">
+        {{ csrf_token }}
+        <input type="text" placeholder="Enter a name...." name="name_pock">
+        <button>Поиск</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li style="color: red; list-style: none; font-size: 25px;">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% for i in ctx_lst %}
+        <h1> {{ i.name.english }} </h1>
+    {% endfor %}
+    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit
+        the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+    </p>
+</main>
+{% endblock content %}

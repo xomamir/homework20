@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="card" style="width: 18rem; color: black; margin: 0 auto;">
+      <div class="card-body">
+        <h5 class="card-title">{{pokemon.name.english}}</h5>
+        <p class="card-text">Types: {% for pok_type in pokemon.type%} {{pok_type}} {% endfor %}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">HP: {{pokemon.base['hp']}}</li>
+          <li class="list-group-item">Attack: {{pokemon.base['attack']}}</li>
+          <li class="list-group-item">Defense: {{pokemon.base['defense']}}</li>
+          <li class="list-group-item">SP... Attack: {{pokemon.base['sp_attack']}}</li>
+          <li class="list-group-item">SP... Defense: {{pokemon.base['sp_defense']}}</li>
+          <li class="list-group-item">Speed: {{pokemon.base['speed']}}</li>
+      </ul>
+    </div>
+{% endblock content %}
